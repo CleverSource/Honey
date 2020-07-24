@@ -1,0 +1,3 @@
+[submodule "Honey/vendor/spdlog"]
+	path = Honey/vendor/spdlog
+	url = https://github.com/gabime/spdlog
