@@ -4,6 +4,9 @@
     <Filter Include="Honey">
       <UniqueIdentifier>{E8A3540D-54B8-7CBE-1D3A-201E890D79EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Honey\Events">
+      <UniqueIdentifier>{CCDA7D18-B83D-0DBD-61C3-45734D05D93F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Honey.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Honey\EntryPoint.h">
       <Filter>Honey</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Honey\Events\ApplicationEvent.h">
+      <Filter>Honey\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Honey\Events\Event.h">
+      <Filter>Honey\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Honey\Events\KeyEvent.h">
+      <Filter>Honey\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Honey\Events\MouseEvent.h">
+      <Filter>Honey\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Honey\Log.h">
       <Filter>Honey</Filter>
