@@ -18,6 +18,9 @@ project "Honey"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "hnpch.h"
+	pchsource "Honey/src/hnpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

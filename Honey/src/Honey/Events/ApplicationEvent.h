@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Honey {
 
 	class HONEY_API WindowResizeEvent : public Event
