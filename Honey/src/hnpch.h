@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Honey/Log.h"
+
 #ifdef HN_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

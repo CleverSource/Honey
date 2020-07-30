@@ -35,6 +35,8 @@
       <Filter>Honey</Filter>
     </ClInclude>
     <ClInclude Include="src\hnpch.h" />
+    <ClInclude Include="src\Honey\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Honey\Application.cpp">
@@ -44,5 +46,6 @@
       <Filter>Honey</Filter>
     </ClCompile>
     <ClCompile Include="src\hnpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
