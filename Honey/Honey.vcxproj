@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,6 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,6 +137,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -157,18 +160,22 @@
     <ClInclude Include="src\Honey\Events\Event.h" />
     <ClInclude Include="src\Honey\Events\KeyEvent.h" />
     <ClInclude Include="src\Honey\Events\MouseEvent.h" />
+    <ClInclude Include="src\Honey\Layer.h" />
+    <ClInclude Include="src\Honey\LayerStack.h" />
     <ClInclude Include="src\Honey\Log.h" />
-    <ClInclude Include="src\hnpch.h" />
     <ClInclude Include="src\Honey\Window.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\hnpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Honey\Application.cpp" />
+    <ClCompile Include="src\Honey\Layer.cpp" />
+    <ClCompile Include="src\Honey\LayerStack.cpp" />
     <ClCompile Include="src\Honey\Log.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\hnpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
