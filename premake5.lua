@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Honey/vendor/GLFW/include"
+IncludeDir["Glad"] = "Honey/vendor/Glad/include"
 
 include "Honey/vendor/GLFW"
+include "Honey/vendor/Glad"
 
 project "Honey"
 	location "Honey"
@@ -37,12 +39,14 @@ project "Honey"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "Honey"
 		defines
 		{
 			"HN_PLATFORM_WINDOWS",
-			"HN_BUILD_DLL"
+			"HN_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
