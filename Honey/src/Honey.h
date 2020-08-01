@@ -6,6 +6,8 @@
 #include "Honey/Layer.h"
 #include "Honey/Log.h"
 
+#include "Honey/ImGui/ImGuiLayer.h"
+
 // ---Entry Point---------------------
 #include "Honey/EntryPoint.h"
 // -----------------------------------
