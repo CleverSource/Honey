@@ -20,6 +20,8 @@ include "Honey/vendor/GLFW"
 include "Honey/vendor/Glad"
 include "Honey/vendor/imgui"
 
+startproject "Sandbox"
+
 project "Honey"
 	location "Honey"
 	kind "SharedLib"
