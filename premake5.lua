@@ -16,9 +16,12 @@ IncludeDir["GLFW"] = "Honey/vendor/GLFW/include"
 IncludeDir["Glad"] = "Honey/vendor/Glad/include"
 IncludeDir["ImGui"] = "Honey/vendor/imgui"
 
-include "Honey/vendor/GLFW"
-include "Honey/vendor/Glad"
-include "Honey/vendor/imgui"
+group "Dependencies"
+	include "Honey/vendor/GLFW"
+	include "Honey/vendor/Glad"
+	include "Honey/vendor/imgui"
+
+group ""
 
 startproject "Sandbox"
 
