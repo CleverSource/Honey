@@ -10,6 +10,10 @@
 	#error Honey only supports Windows!
 #endif
 
+#ifdef HN_DEBUG
+	#define HN_ENABLE_ASSERTS
+#endif
+
 #ifdef HN_ENABLE_ASSERTS
 	#define HN_ASSERT(x, ...) { if(!(x)) { HN_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define HN_CORE_ASSERT(x, ...) { if(!(x)) { HN_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
