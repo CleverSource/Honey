@@ -1,5 +1,6 @@
 workspace "Honey"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -22,8 +23,6 @@ group "Dependencies"
 	include "Honey/vendor/imgui"
 
 group ""
-
-startproject "Sandbox"
 
 project "Honey"
 	location "Honey"
