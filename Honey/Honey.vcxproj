@@ -158,11 +158,15 @@
     <ClInclude Include="src\Honey\Events\KeyEvent.h" />
     <ClInclude Include="src\Honey\Events\MouseEvent.h" />
     <ClInclude Include="src\Honey\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Honey\Input.h" />
+    <ClInclude Include="src\Honey\KeyCodes.h" />
     <ClInclude Include="src\Honey\Layer.h" />
     <ClInclude Include="src\Honey\LayerStack.h" />
     <ClInclude Include="src\Honey\Log.h" />
+    <ClInclude Include="src\Honey\MouseButtonCodes.h" />
     <ClInclude Include="src\Honey\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\hnpch.h" />
   </ItemGroup>
@@ -173,6 +177,7 @@
     <ClCompile Include="src\Honey\LayerStack.cpp" />
     <ClCompile Include="src\Honey\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\hnpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

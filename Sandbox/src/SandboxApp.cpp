@@ -10,12 +10,19 @@ public:
 
 	void OnUpdate() override
 	{
-		HN_INFO("ExampleLayer::Update");
+		if (Honey::Input::IsKeyPressed(HN_KEY_TAB))
+			HN_TRACE("Tab key is pressed (poll)!");
 	}
 
 	void OnEvent(Honey::Event& event) override
 	{
-		HN_TRACE("{0}", event);
+		if (event.GetEventType() == Honey::EventType::KeyPressed)
+		{
+			Honey::KeyPressedEvent& e = (Honey::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == HN_KEY_TAB)
+				HN_TRACE("Tab key is pressed (event)!");
+			HN_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 
 };
