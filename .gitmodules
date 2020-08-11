@@ -7,3 +7,6 @@
 [submodule "Honey/vendor/imgui"]
 	path = Honey/vendor/imgui
 	url = https://github.com/CleverSource/imgui
+[submodule "Honey/vendor/glm"]
+	path = Honey/vendor/glm
+	url = https://github.com/g-truc/glm

@@ -79,5 +79,6 @@ namespace Honey {
 	{
 		return os << e.ToString();
 	}
+
 }
 
