@@ -113,6 +113,7 @@ project "Sandbox"
 	{
 		"Honey/vendor/spdlog/include",
 		"Honey/src",
+		"Honey/vendor",
 		"%{IncludeDir.glm}"
 	}
 

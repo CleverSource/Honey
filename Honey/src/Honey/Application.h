@@ -7,6 +7,8 @@
 #include "Honey/Events/Event.h"
 #include "Honey/Events/ApplicationEvent.h"
 
+#include "Honey/ImGui/ImGuiLayer.h"
+
 namespace Honey {
 
 	class HONEY_API Application
@@ -29,6 +31,7 @@ namespace Honey {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:

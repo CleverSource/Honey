@@ -165,7 +165,6 @@
     <ClInclude Include="src\Honey\Log.h" />
     <ClInclude Include="src\Honey\MouseButtonCodes.h" />
     <ClInclude Include="src\Honey\Window.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\hnpch.h" />
@@ -580,11 +579,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Honey\Application.cpp" />
+    <ClCompile Include="src\Honey\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Honey\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Honey\Layer.cpp" />
     <ClCompile Include="src\Honey\LayerStack.cpp" />
     <ClCompile Include="src\Honey\Log.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\hnpch.cpp">
@@ -605,4 +604,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project>
+</Project> 
