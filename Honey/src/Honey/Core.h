@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef HN_PLATFORM_WINDOWS
+#if HN_DYNAMIC_LINK
 	#ifdef HN_BUILD_DLL
 		#define HONEY_API __declspec(dllexport)
 	#else
 		#define HONEY_API __declspec(dllimport)
 	#endif
+#else
+	#define HONEY_API
+#endif
 #else
 	#error Honey only supports Windows!
 #endif
