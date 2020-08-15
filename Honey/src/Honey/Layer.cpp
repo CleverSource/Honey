@@ -8,9 +8,4 @@ namespace Honey {
 	{
 	}
 
-	Layer::~Layer()
-	{
-
-	}
-
 }
