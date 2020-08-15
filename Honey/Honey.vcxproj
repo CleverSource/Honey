@@ -155,9 +155,12 @@
     <ClInclude Include="src\Honey\LayerStack.h" />
     <ClInclude Include="src\Honey\Log.h" />
     <ClInclude Include="src\Honey\MouseButtonCodes.h" />
+    <ClInclude Include="src\Honey\Renderer\Buffer.h" />
     <ClInclude Include="src\Honey\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Honey\Renderer\Renderer.h" />
     <ClInclude Include="src\Honey\Renderer\Shader.h" />
     <ClInclude Include="src\Honey\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -578,7 +581,10 @@
     <ClCompile Include="src\Honey\Layer.cpp" />
     <ClCompile Include="src\Honey\LayerStack.cpp" />
     <ClCompile Include="src\Honey\Log.cpp" />
+    <ClCompile Include="src\Honey\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Honey\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Honey\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
