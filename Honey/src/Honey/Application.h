@@ -13,6 +13,8 @@
 #include "Honey/Renderer/Buffer.h"
 #include "Honey/Renderer/VertexArray.h"
 
+#include "Honey/Renderer/OrthographicCamera.h"
+
 namespace Honey {
 
 	class HONEY_API Application
@@ -44,6 +46,8 @@ namespace Honey {
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
