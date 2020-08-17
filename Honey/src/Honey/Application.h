@@ -7,17 +7,13 @@
 #include "Honey/Events/Event.h"
 #include "Honey/Events/ApplicationEvent.h"
 
+#include "Honey/Core/Timestep.h"
+
 #include "Honey/ImGui/ImGuiLayer.h"
-
-#include "Honey/Renderer/Shader.h"
-#include "Honey/Renderer/Buffer.h"
-#include "Honey/Renderer/VertexArray.h"
-
-#include "Honey/Renderer/OrthographicCamera.h"
 
 namespace Honey {
 
-	class HONEY_API Application
+	class Application
 	{
 	public:
 		Application();
@@ -35,19 +31,12 @@ namespace Honey {
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 	};

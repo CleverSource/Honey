@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Honey/Core.h"
+#include "Honey/Core/Timestep.h"
 #include "Honey/Events/Event.h"
 
 namespace Honey {
@@ -13,7 +14,7 @@ namespace Honey {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
