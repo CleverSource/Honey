@@ -17,6 +17,7 @@ IncludeDir["GLFW"] = "Honey/vendor/GLFW/include"
 IncludeDir["Glad"] = "Honey/vendor/Glad/include"
 IncludeDir["ImGui"] = "Honey/vendor/imgui"
 IncludeDir["glm"] = "Honey/vendor/glm"
+IncludeDir["stb_image"] = "Honey/vendor/stb_image"
 
 group "Dependencies"
 	include "Honey/vendor/GLFW"
@@ -42,6 +43,8 @@ project "Honey"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
@@ -58,7 +61,8 @@ project "Honey"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links

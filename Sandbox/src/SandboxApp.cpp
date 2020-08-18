@@ -21,7 +21,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<Honey::VertexBuffer> vertexBuffer;
+		Honey::Ref<Honey::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Honey::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Honey::BufferLayout layout = {
 			{ Honey::ShaderDataType::Float3, "a_Position" },
@@ -31,28 +31,29 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Honey::IndexBuffer> indexBuffer;
+		Honey::Ref<Honey::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Honey::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA.reset(Honey::VertexArray::Create());
 
-		float squareVertices[3 * 4] = {
-			-0.5f, -0.5f, 0.0f,
-			 0.5f, -0.5f, 0.0f,
-			 0.5f,  0.5f, 0.0f,
-			-0.5f,  0.5f, 0.0f
+		float squareVertices[5 * 4] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		std::shared_ptr<Honey::VertexBuffer> squareVB;
+		Honey::Ref<Honey::VertexBuffer> squareVB;
 		squareVB.reset(Honey::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
-			{ Honey::ShaderDataType::Float3, "a_Position" }
-			});
+			{ Honey::ShaderDataType::Float3, "a_Position" },
+			{ Honey::ShaderDataType::Float2, "a_TexCoord" }
+		});
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Honey::IndexBuffer> squareIB;
+		Honey::Ref<Honey::IndexBuffer> squareIB;
 		squareIB.reset(Honey::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -126,6 +127,46 @@ public:
 		)";
 
 		m_FlatColorShader.reset(Honey::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+
+		std::string textureShaderVertexSrc = R"(
+			#version 330 core
+
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+
+			out vec2 v_TexCoord;
+
+			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
+			}
+		)";
+
+		std::string textureShaderFragmentSrc = R"(
+			#version 330 core
+
+			layout(location = 0) out vec4 color;
+
+			in vec2 v_TexCoord;
+
+			uniform sampler2D u_Texture;
+
+			void main()
+			{
+				color = texture(u_Texture, v_TexCoord);
+			}
+		)";
+
+		m_TextureShader.reset(Honey::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+
+		m_Texture = Honey::Texture2D::Create("assets/textures/Checkerboard.png");
+
+		std::dynamic_pointer_cast<Honey::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<Honey::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Honey::Timestep ts) override
@@ -168,7 +209,11 @@ public:
 			}
 		}
 
-		Honey::Renderer::Submit(m_Shader, m_VertexArray);
+		m_Texture->Bind();
+		Honey::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+		// Triangle
+		// Honey::Renderer::Submit(m_Shader, m_VertexArray);
 
 		Honey::Renderer::EndScene();
 	}
@@ -184,11 +229,13 @@ public:
 	{
 	}
 private:
-	std::shared_ptr<Honey::Shader> m_Shader;
-	std::shared_ptr<Honey::VertexArray> m_VertexArray;
+	Honey::Ref<Honey::Shader> m_Shader;
+	Honey::Ref<Honey::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Honey::Shader> m_FlatColorShader;
-	std::shared_ptr<Honey::VertexArray> m_SquareVA;
+	Honey::Ref<Honey::Shader> m_FlatColorShader, m_TextureShader;
+	Honey::Ref<Honey::VertexArray> m_SquareVA;
+
+	Honey::Ref<Honey::Texture2D> m_Texture;
 
 	Honey::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
