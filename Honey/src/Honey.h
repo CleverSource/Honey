@@ -11,6 +11,7 @@
 #include "Honey/Input.h"
 #include "Honey/KeyCodes.h"
 #include "Honey/MouseButtonCodes.h"
+#include "Honey/OrthographicCameraController.h"
 
 #include "Honey/ImGui/ImGuiLayer.h"
 
