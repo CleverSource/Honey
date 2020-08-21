@@ -92,7 +92,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(Honey::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Honey::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -126,15 +126,15 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Honey::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Honey::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Honey::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Honey::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_CleverLogoTexture = Honey::Texture2D::Create("assets/textures/CleverLogo.png");
 
-		std::dynamic_pointer_cast<Honey::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Honey::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Honey::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Honey::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Honey::Timestep ts) override
@@ -177,10 +177,12 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Honey::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Honey::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		m_CleverLogoTexture->Bind();
-		Honey::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Honey::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
 		// Honey::Renderer::Submit(m_Shader, m_VertexArray);
@@ -199,10 +201,11 @@ public:
 	{
 	}
 private:
+	Honey::ShaderLibrary m_ShaderLibrary;
 	Honey::Ref<Honey::Shader> m_Shader;
 	Honey::Ref<Honey::VertexArray> m_VertexArray;
 
-	Honey::Ref<Honey::Shader> m_FlatColorShader, m_TextureShader;
+	Honey::Ref<Honey::Shader> m_FlatColorShader;
 	Honey::Ref<Honey::VertexArray> m_SquareVA;
 
 	Honey::Ref<Honey::Texture2D> m_Texture, m_CleverLogoTexture;
