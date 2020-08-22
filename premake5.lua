@@ -83,7 +83,6 @@ project "Honey"
 
 		defines
 		{
-			"HN_PLATFORM_WINDOWS",
 			"HN_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
 		}
@@ -134,11 +133,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
-
-		defines
-		{
-			"HN_PLATFORM_WINDOWS"
-		}
 
 	filter "configurations:Debug"
 		defines "HN_DEBUG"
