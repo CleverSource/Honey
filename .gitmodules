@@ -1,12 +1,16 @@
 [submodule "Honey/vendor/spdlog"]
 	path = Honey/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+	branch = v1.x
 [submodule "Honey/vendor/GLFW"]
 	path = Honey/vendor/GLFW
 	url = https://github.com/CleverSource/glfw
+	branch = master
 [submodule "Honey/vendor/imgui"]
 	path = Honey/vendor/imgui
 	url = https://github.com/CleverSource/imgui
+	branch = docking
 [submodule "Honey/vendor/glm"]
 	path = Honey/vendor/glm
 	url = https://github.com/g-truc/glm
+	branch = master
