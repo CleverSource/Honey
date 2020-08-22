@@ -26,7 +26,3 @@
 
 #include "Honey/Renderer/OrthographicCamera.h"
 // -----------------------------------
-
-// ---Entry Point---------------------
-#include "Honey/Core/EntryPoint.h"
-// -----------------------------------
