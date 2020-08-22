@@ -2,16 +2,16 @@
 
 // For use by Honey applications
 
-#include "Honey/Application.h"
-#include "Honey/Layer.h"
-#include "Honey/Log.h"
+#include "Honey/Core/Application.h"
+#include "Honey/Core/Layer.h"
+#include "Honey/Core/Log.h"
 
 #include "Honey/Core/Timestep.h"
 
-#include "Honey/Input.h"
-#include "Honey/KeyCodes.h"
-#include "Honey/MouseButtonCodes.h"
-#include "Honey/OrthographicCameraController.h"
+#include "Honey/Core/Input.h"
+#include "Honey/Core/KeyCodes.h"
+#include "Honey/Core/MouseButtonCodes.h"
+#include "Honey/Renderer/OrthographicCameraController.h"
 
 #include "Honey/ImGui/ImGuiLayer.h"
 
@@ -28,5 +28,5 @@
 // -----------------------------------
 
 // ---Entry Point---------------------
-#include "Honey/EntryPoint.h"
+#include "Honey/Core/EntryPoint.h"
 // -----------------------------------

@@ -1,8 +1,8 @@
 #include "hnpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Honey/Input.h"
-#include "Honey/KeyCodes.h"
+#include "Honey/Core/Input.h"
+#include "Honey/Core/KeyCodes.h"
 
 namespace Honey {
 

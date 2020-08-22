@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Honey/Window.h"
+#include "Honey/Core/Window.h"
 #include "Honey/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

@@ -1,7 +1,7 @@
 #include "hnpch.h"
 #include "WindowsInput.h"
 
-#include "Honey/Application.h"
+#include "Honey/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Honey {

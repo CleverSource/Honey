@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Honey/Core.h"
+#include "Honey/Core/Core.h"
 #include "Honey/Core/Timestep.h"
 #include "Honey/Events/Event.h"
 

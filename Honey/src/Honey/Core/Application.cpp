@@ -1,7 +1,7 @@
 #include "hnpch.h"
 #include "Application.h"
 
-#include "Honey/Log.h"
+#include "Honey/Core/Log.h"
 
 #include "Honey/Renderer/Renderer.h"
 
