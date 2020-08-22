@@ -17,6 +17,7 @@
 
 // ---Renderer------------------------
 #include "Honey/Renderer/Renderer.h"
+#include "Honey/Renderer/Renderer2D.h"
 #include "Honey/Renderer/RenderCommand.h"
 
 #include "Honey/Renderer/Buffer.h"
