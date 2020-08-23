@@ -1,7 +1,7 @@
 #include "hnpch.h"
-#include "Shader.h"
+#include "Honey/Renderer/Shader.h"
 
-#include "Renderer.h"
+#include "Honey/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Honey {
@@ -11,7 +11,7 @@ namespace Honey {
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None:    HN_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(filepath);
+			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(filepath);
 		}
 
 		HN_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -23,7 +23,7 @@ namespace Honey {
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None:    HN_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
+			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 
 		HN_CORE_ASSERT(false, "Unknown RendererAPI!");

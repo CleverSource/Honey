@@ -1,7 +1,7 @@
 #include "hnpch.h"
-#include "Texture.h"
+#include "Honey/Renderer/Texture.h"
 
-#include "Renderer.h"
+#include "Honey/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLTexture.h"
 
 namespace Honey {

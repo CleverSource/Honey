@@ -8,7 +8,7 @@
 
 namespace Honey {
 
-	class HONEY_API ImGuiLayer : public Layer
+	class ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();

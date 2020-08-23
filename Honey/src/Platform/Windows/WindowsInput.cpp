@@ -1,5 +1,5 @@
 #include "hnpch.h"
-#include "WindowsInput.h"
+#include "Platform/Windows/WindowsInput.h"
 
 #include "Honey/Core/Application.h"
 #include <GLFW/glfw3.h>

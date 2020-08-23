@@ -1,4 +1,5 @@
 #pragma once
+#include "Honey/Core/Core.h"
 
 #ifdef HN_PLATFORM_WINDOWS
 

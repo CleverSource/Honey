@@ -1,11 +1,7 @@
 #include "hnpch.h"
-#include "LayerStack.h"
+#include "Honey/Core/LayerStack.h"
 
 namespace Honey {
-
-	LayerStack::LayerStack()
-	{
-	}
 
 	LayerStack::~LayerStack()
 	{

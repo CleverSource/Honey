@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core.h"
+#include "Honey/Core/Core.h"
 
-#include "Window.h"
+#include "Honey/Core/Window.h"
 #include "Honey/Core/LayerStack.h"
 #include "Honey/Events/Event.h"
 #include "Honey/Events/ApplicationEvent.h"
@@ -17,7 +17,7 @@ namespace Honey {
 	{
 	public:
 		Application();
-		virtual ~Application() = default;
+		virtual ~Application();
 
 		void Run();
 

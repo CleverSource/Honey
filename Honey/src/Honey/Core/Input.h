@@ -4,7 +4,7 @@
 
 namespace Honey {
 
-	class HONEY_API Input
+	class Input
 	{
 	protected:
 		Input() = default;

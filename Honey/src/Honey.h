@@ -2,6 +2,8 @@
 
 // For use by Honey applications
 
+#include "Honey/Core/Core.h"
+
 #include "Honey/Core/Application.h"
 #include "Honey/Core/Layer.h"
 #include "Honey/Core/Log.h"

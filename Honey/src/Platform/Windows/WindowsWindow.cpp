@@ -1,5 +1,5 @@
 #include "hnpch.h"
-#include "WindowsWindow.h"
+#include "Platform/Windows/WindowsWindow.h"
 
 #include "Honey/Events/ApplicationEvent.h"
 #include "Honey/Events/MouseEvent.h"
@@ -16,9 +16,9 @@ namespace Honey {
 		HN_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 	}
 
-	Window* Window::Create(const WindowProps& props)
+	Scope<Window> Window::Create(const WindowProps& props)
 	{
-		return new WindowsWindow(props);
+		return CreateScope<WindowsWindow>(props);
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
@@ -41,7 +41,6 @@ namespace Honey {
 
 		if (s_GLFWWindowCount == 0)
 		{
-			HN_CORE_INFO("Initializing GLFW");
 			int success = glfwInit();
 			HN_CORE_ASSERT(success, "Could not intialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
@@ -50,8 +49,7 @@ namespace Honey {
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		++s_GLFWWindowCount;
 
-		m_Context = CreateScope<OpenGLContext>(m_Window);
-
+		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
@@ -151,10 +149,10 @@ namespace Honey {
 	void WindowsWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
+		--s_GLFWWindowCount;
 
-		if (--s_GLFWWindowCount == 0)
+		if (s_GLFWWindowCount == 0)
 		{
-			HN_CORE_INFO("Terminating GLFW");
 			glfwTerminate();
 		}
 	}

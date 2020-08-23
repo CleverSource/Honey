@@ -1,16 +1,16 @@
 #pragma once
 
 #include "Honey/Core/Core.h"
-#include "Layer.h"
+#include "Honey/Core/Layer.h"
 
 #include <vector>
 
 namespace Honey {
 
-	class HONEY_API LayerStack
+	class LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

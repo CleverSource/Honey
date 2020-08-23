@@ -1,6 +1,6 @@
 #pragma once
-
 #include "hnpch.h"
+
 #include "Honey/Core/Core.h"
 
 namespace Honey {
@@ -35,7 +35,7 @@ namespace Honey {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class HONEY_API Event
+	class Event
 	{
 	public:
 		bool Handled = false;

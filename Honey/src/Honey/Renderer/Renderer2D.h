@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OrthographicCamera.h"
+#include "Honey/Renderer/OrthographicCamera.h"
 
-#include "Texture.h"
+#include "Honey/Renderer/Texture.h"
 
 namespace Honey {
 
