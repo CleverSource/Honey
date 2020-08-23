@@ -6,7 +6,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 ExampleLayer::ExampleLayer()
-	: Layer("Example"), m_CameraController(1280.0f / 720.0f)
+	: Layer("ExampleLayer"), m_CameraController(1280.0f / 720.0f)
 {
 	m_VertexArray = Honey::VertexArray::Create();
 
