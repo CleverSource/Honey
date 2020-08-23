@@ -21,5 +21,7 @@ private:
 	Honey::Ref<Honey::VertexArray> m_SquareVA;
 	Honey::Ref<Honey::Shader> m_FlatColorShader;
 
+	Honey::Ref<Honey::Texture2D> m_CheckerboardTexture;
+
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };
