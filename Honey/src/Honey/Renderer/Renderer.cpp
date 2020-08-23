@@ -8,6 +8,8 @@ namespace Honey {
 
 	void Renderer::Init()
 	{
+		HN_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}
