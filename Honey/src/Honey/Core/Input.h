@@ -27,6 +27,8 @@ namespace Honey {
 		virtual std::pair<float, float> GetMousePositionImpl() = 0;
 		virtual float GetMouseXImpl() = 0;
 		virtual float GetMouseYImpl() = 0;
+
+		static Scope<Input> Create();
 	private:
 		static Scope<Input> s_Instance;
 	};
