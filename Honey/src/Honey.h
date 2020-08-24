@@ -12,7 +12,7 @@
 
 #include "Honey/Core/Input.h"
 #include "Honey/Core/KeyCodes.h"
-#include "Honey/Core/MouseButtonCodes.h"
+#include "Honey/Core/MouseCodes.h"
 #include "Honey/Renderer/OrthographicCameraController.h"
 
 #include "Honey/ImGui/ImGuiLayer.h"
