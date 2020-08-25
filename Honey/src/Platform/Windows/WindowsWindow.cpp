@@ -48,7 +48,7 @@ namespace Honey {
 		{
 			HN_PROFILE_SCOPE("glfwInit");
 			int success = glfwInit();
-			HN_CORE_ASSERT(success, "Could not intialize GLFW!");
+			HN_CORE_ASSERT(success, "Could not initialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
 		}
 
