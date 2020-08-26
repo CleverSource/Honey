@@ -190,7 +190,7 @@ namespace Honey {
 	}
 }
 
-#define HN_PROFILE 1
+#define HN_PROFILE 0
 #if HN_PROFILE
 	// Resolve which function signature macro will be used. Note that this only
 	// is resolved when the (pre)compiler starts, so the syntax highlighting
