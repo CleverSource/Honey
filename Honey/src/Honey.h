@@ -2,7 +2,7 @@
 
 // For use by Honey applications
 
-#include "Honey/Core/Core.h"
+#include "Honey/Core/Base.h"
 
 #include "Honey/Core/Application.h"
 #include "Honey/Core/Layer.h"

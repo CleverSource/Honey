@@ -2,7 +2,7 @@
 
 #include "hnpch.h"
 
-#include "Honey/Core/Core.h"
+#include "Honey/Core/Base.h"
 #include "Honey/Events/Event.h"
 
 namespace Honey {

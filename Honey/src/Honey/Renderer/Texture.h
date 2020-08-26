@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Honey/Core/Core.h"
+#include "Honey/Core/Base.h"
 
 namespace Honey {
 

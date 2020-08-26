@@ -1,7 +1,7 @@
 #pragma once
 #include "hnpch.h"
 
-#include "Honey/Core/Core.h"
+#include "Honey/Core/Base.h"
 
 namespace Honey {
 
