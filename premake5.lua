@@ -28,7 +28,6 @@ group "Dependencies"
 	include "Honey/vendor/GLFW"
 	include "Honey/vendor/Glad"
 	include "Honey/vendor/imgui"
-
 group ""
 
 project "Honey"
@@ -103,6 +102,53 @@ project "Honey"
 
 project "Sandbox"
 	location "Sandbox"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Honey/vendor/spdlog/include",
+		"Honey/src",
+		"Honey/vendor",
+		"%{IncludeDir.glm}"
+	}
+
+	links
+	{
+		"Honey"
+	}
+
+	filter "system:windows"
+		systemversion "latest"
+
+	filter "configurations:Debug"
+		defines "HN_DEBUG"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+		defines "HN_RELEASE"
+		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "HN_DIST"
+		runtime "Release"
+		optimize "on"
+
+project "Honey-Editor"
+	location "Honey-Editor"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"

@@ -20,7 +20,6 @@ private:
 	// Temp
 	Honey::Ref<Honey::VertexArray> m_SquareVA;
 	Honey::Ref<Honey::Shader> m_FlatColorShader;
-	Honey::Ref<Honey::Framebuffer> m_Framebuffer;
 
 	Honey::Ref<Honey::Texture2D> m_CheckerboardTexture;
 

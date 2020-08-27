@@ -18,7 +18,7 @@ namespace Honey {
 	class Application
 	{
 	public:
-		Application();
+		Application(const std::string& name = "Honey App");
 		virtual ~Application();
 
 		void OnEvent(Event& e);
