@@ -1,6 +1,6 @@
 workspace "Honey"
 	architecture "x86_64"
-	startproject "Sandbox"
+	startproject "Honeynut"
 
 	configurations
 	{
@@ -147,8 +147,8 @@ project "Sandbox"
 		runtime "Release"
 		optimize "on"
 
-project "Honey-Editor"
-	location "Honey-Editor"
+project "Honeynut"
+	location "Honeynut"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"

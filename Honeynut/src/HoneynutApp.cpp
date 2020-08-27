@@ -5,23 +5,23 @@
 
 namespace Honey {
 
-	class HoneyEditor : public Application
+	class Honeynut : public Application
 	{
 	public:
-		HoneyEditor()
-			: Application("Honey Editor")
+		Honeynut()
+			: Application("Honeynut")
 		{
 			PushLayer(new EditorLayer());
 		}
 
-		~HoneyEditor()
+		~Honeynut()
 		{
 		}
 	};
 
 	Application* CreateApplication()
 	{
-		return new HoneyEditor();
+		return new Honeynut();
 	}
 
 }
