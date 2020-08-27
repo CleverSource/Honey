@@ -17,7 +17,7 @@ int main(int argc, char** argv)
 	app->Run();
 	HN_PROFILE_END_SESSION();
 
-	HN_PROFILE_BEGIN_SESSION("Startup", "HoneyProfile-Shutdown.json");
+	HN_PROFILE_BEGIN_SESSION("Shutdown", "HoneyProfile-Shutdown.json");
 	delete app;
 	HN_PROFILE_END_SESSION();
 }
