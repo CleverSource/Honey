@@ -24,6 +24,7 @@
 
 #include "Honey/Renderer/Buffer.h"
 #include "Honey/Renderer/Shader.h"
+#include "Honey/Renderer/Framebuffer.h"
 #include "Honey/Renderer/Texture.h"
 #include "Honey/Renderer/VertexArray.h"
 
