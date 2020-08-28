@@ -15,12 +15,20 @@ namespace Honey {
 	{
 		HN_PROFILE_FUNCTION();
 
-		m_CheckerboardTexture = Honey::Texture2D::Create("assets/textures/Checkerboard.png");
+		m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
 
-		Honey::FramebufferSpecification fbSpec;
+		FramebufferSpecification fbSpec;
 		fbSpec.Width = 1280;
 		fbSpec.Height = 720;
-		m_Framebuffer = Honey::Framebuffer::Create(fbSpec);
+		m_Framebuffer = Framebuffer::Create(fbSpec);
+
+		m_ActiveScene = CreateRef<Scene>();
+
+		auto square = m_ActiveScene->CreateEntity();
+		m_ActiveScene->Reg().emplace<TransformComponent>(square);
+		m_ActiveScene->Reg().emplace<SpriteRendererComponent>(square, glm::vec4{ 0.0f, 1.0f, 0.0f, 1.0f });
+
+		m_SquareEntity = square;
 	}
 
 	void EditorLayer::OnDetach()
@@ -28,12 +36,12 @@ namespace Honey {
 		HN_PROFILE_FUNCTION();
 	}
 
-	void EditorLayer::OnUpdate(Honey::Timestep ts)
+	void EditorLayer::OnUpdate(Timestep ts)
 	{
 		HN_PROFILE_FUNCTION();
 
 		// Resize
-		if (Honey::FramebufferSpecification spec = m_Framebuffer->GetSpecification();
+		if (FramebufferSpecification spec = m_Framebuffer->GetSpecification();
 			m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // Zero sized framebuffer is invalid
 			(spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
 		{
@@ -46,39 +54,19 @@ namespace Honey {
 			m_CameraController.OnUpdate(ts);
 
 		// Render
-		Honey::Renderer2D::ResetStats();
-		{
-			HN_PROFILE_SCOPE("Renderer Prep");
-			m_Framebuffer->Bind();
-			Honey::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
-			Honey::RenderCommand::Clear();
-		}
+		Renderer2D::ResetStats();
+		m_Framebuffer->Bind();
+		RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+		RenderCommand::Clear();
 
-		{
-			static float rotation = 0.0f;
-			rotation += ts * 50.0f;
+		Renderer2D::BeginScene(m_CameraController.GetCamera());
 
-			HN_PROFILE_SCOPE("Renderer Draw");
-			Honey::Renderer2D::BeginScene(m_CameraController.GetCamera());
-			Honey::Renderer2D::DrawRotatedQuad({ 1.0f, 0.0f }, { 0.8f, 0.8f }, -45.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
-			Honey::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
-			Honey::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, m_SquareColor);
-			Honey::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 20.0f, 20.0f }, m_CheckerboardTexture, 10.0f);
-			Honey::Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, rotation, m_CheckerboardTexture, 20.0f);
-			Honey::Renderer2D::EndScene();
+		// Update scene
+		m_ActiveScene->OnUpdate(ts);
+		
+		Renderer2D::EndScene();
 
-			Honey::Renderer2D::BeginScene(m_CameraController.GetCamera());
-			for (float y = -5.0f; y < 5.0f; y += 0.5f)
-			{
-				for (float x = -5.0f; x < 5.0f; x += 0.5f)
-				{
-					glm::vec4 color = { (x + 5.0f) / 10.0f, 0.4f, (y + 5.0f) / 10.0f, 0.7f };
-					Honey::Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, color);
-				}
-			}
-			Honey::Renderer2D::EndScene();
-			m_Framebuffer->Unbind();
-		}
+		m_Framebuffer->Unbind();
 	}
 
 	void EditorLayer::OnImGuiRender()
@@ -138,7 +126,7 @@ namespace Honey {
 				// which we can't undo at the moment without finer window depth/z control.
 				//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
 
-				if (ImGui::MenuItem("Exit")) Honey::Application::Get().Close();
+				if (ImGui::MenuItem("Exit")) Application::Get().Close();
 				ImGui::EndMenu();
 			}
 
@@ -147,14 +135,15 @@ namespace Honey {
 
 		ImGui::Begin("Settings");
 
-		auto stats = Honey::Renderer2D::GetStats();
+		auto stats = Renderer2D::GetStats();
 		ImGui::Text("Renderer2D Stats:");
 		ImGui::Text("Draw Calls: %d", stats.DrawCalls);
 		ImGui::Text("Quads: %d", stats.QuadCount);
 		ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
 		ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
 
-		ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
+		auto& squareColor = m_ActiveScene->Reg().get<SpriteRendererComponent>(m_SquareEntity).Color;
+		ImGui::ColorEdit4("Square Color", glm::value_ptr(squareColor));
 
 		ImGui::End();
 
@@ -176,7 +165,7 @@ namespace Honey {
 		ImGui::End();
 	}
 
-	void EditorLayer::OnEvent(Honey::Event& e)
+	void EditorLayer::OnEvent(Event& e)
 	{
 		m_CameraController.OnEvent(e);
 	}

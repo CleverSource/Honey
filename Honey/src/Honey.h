@@ -17,6 +17,9 @@
 
 #include "Honey/ImGui/ImGuiLayer.h"
 
+#include "Honey/Scene/Scene.h"
+#include "Honey/Scene/Components.h"
+
 // ---Renderer------------------------
 #include "Honey/Renderer/Renderer.h"
 #include "Honey/Renderer/Renderer2D.h"
