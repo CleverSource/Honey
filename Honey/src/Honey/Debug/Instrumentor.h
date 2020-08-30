@@ -215,8 +215,10 @@ namespace Honey {
 
 	#define HN_PROFILE_BEGIN_SESSION(name, filepath) ::Honey::Instrumentor::Get().BeginSession(name, filepath)
 	#define HN_PROFILE_END_SESSION() ::Honey::Instrumentor::Get().EndSession()
-	#define HN_PROFILE_SCOPE(name) constexpr auto fixedName = ::Honey::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
-									::Honey::InstrumentationTimer timer##__LINE__(fixedName.Data)
+	#define HN_PROFILE_SCOPE_LINE2(name, line) constexpr auto fixedName##line = ::Honey::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
+											   ::Honey::InstrumentationTimer timer##line(fixedName##line.Data)
+	#define HN_PROFILE_SCOPE_LINE(name, line) HN_PROFILE_SCOPE_LINE2(name, line)
+	#define HN_PROFILE_SCOPE(name) HN_PROFILE_SCOPE_LINE(name, __LINE__)
 	#define HN_PROFILE_FUNCTION() HN_PROFILE_SCOPE(HN_FUNC_SIG)
 #else
 	#define HN_PROFILE_BEGIN_SESSION(name, filepath)
