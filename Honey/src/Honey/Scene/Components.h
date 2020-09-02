@@ -2,7 +2,7 @@
 
 #include <glm/glm.hpp>
 
-#include "Honey/Renderer/Camera.h"
+#include "SceneCamera.h"
 
 namespace Honey {
 
@@ -41,13 +41,12 @@ namespace Honey {
 
 	struct CameraComponent
 	{
-		Honey::Camera Camera;
+		SceneCamera Camera;
 		bool Primary = true; // TODO: think about moving to Scene
+		bool FixedAspectRatio = false;
 
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
-		CameraComponent(const glm::mat4& projection)
-			: Camera(projection) {}
 	};
 
 }
