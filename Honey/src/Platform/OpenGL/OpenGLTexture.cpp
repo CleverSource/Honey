@@ -32,7 +32,7 @@ namespace Honey {
 		stbi_set_flip_vertically_on_load(1);
 		stbi_uc* data = nullptr;
 		{
-			HN_PROFILE_SCOPE("stbi_load - OpenGLTexture2D::OpenGLTexture2D(const std:string&)");
+			HN_PROFILE_SCOPE("stbi_load - OpenGLTexture2D::OpenGLTexture2D(const std::string&)");
 			data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 		}
 		HN_CORE_ASSERT(data, "Failed to load image!");
