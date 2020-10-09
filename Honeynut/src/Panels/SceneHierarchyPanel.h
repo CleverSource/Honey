@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Honey/Core/Base.h"
-#include "Honey/Core/Log.h"
 #include "Honey/Scene/Scene.h"
 #include "Honey/Scene/Entity.h"
 

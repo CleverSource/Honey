@@ -18,14 +18,8 @@
 	#define HN_DEBUGBREAK()
 #endif
 
-// TODO: Make this macro able to take in no arguments except condition
-#ifdef HN_ENABLE_ASSERTS
-	#define HN_ASSERT(x, ...) { if(!(x)) { HN_ERROR("Assertion Failed: {0}", __VA_ARGS__); HN_DEBUGBREAK(); } }
-	#define HN_CORE_ASSERT(x, ...) { if(!(x)) { HN_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); HN_DEBUGBREAK(); } }
-#else
-	#define HN_ASSERT(x, ...)
-	#define HN_CORE_ASSERT(x, ...)
-#endif
+#define HN_EXPAND_MACRO(x) x
+#define HN_STRINGIFY_MACRO(x) #x
 
 #define BIT(x) (1 << x)
 
@@ -50,3 +44,6 @@ namespace Honey {
 	}
 
 }
+
+#include "Honey/Core/Log.h"
+#include "Honey/Core/Assert.h"

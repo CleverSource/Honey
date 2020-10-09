@@ -7,6 +7,7 @@
 #include "Honey/Core/Application.h"
 #include "Honey/Core/Layer.h"
 #include "Honey/Core/Log.h"
+#include "Honey/Core/Assert.h"
 
 #include "Honey/Core/Timestep.h"
 
