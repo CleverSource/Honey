@@ -17,3 +17,6 @@
 [submodule "Honey/vendor/yaml-cpp"]
 	path = Honey/vendor/yaml-cpp
 	url = https://github.com/CleverSource/yaml-cpp
+[submodule "Honey/vendor/ImGuizmo"]
+	path = Honey/vendor/ImGuizmo
+	url = https://github.com/CleverSource/imguizmo

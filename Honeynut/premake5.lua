@@ -19,7 +19,8 @@ project "Honeynut"
 		"%{wks.location}/Honey/src",
 		"%{wks.location}/Honey/vendor",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.entt}"
+		"%{IncludeDir.entt}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links
