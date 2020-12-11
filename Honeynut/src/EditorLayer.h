@@ -3,6 +3,8 @@
 #include "Honey.h"
 #include "Panels/SceneHierarchyPanel.h"
 
+#include "Honey/Renderer/EditorCamera.h"
+
 namespace Honey {
 
 	class EditorLayer : public Layer
@@ -37,6 +39,8 @@ namespace Honey {
 		Entity m_SecondCamera;
 
 		bool m_PrimaryCamera = true;
+
+		EditorCamera m_EditorCamera;
 
 		Ref<Texture2D> m_CheckerboardTexture;
 
