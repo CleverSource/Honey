@@ -244,7 +244,7 @@ namespace Honey {
 			}
 		}
 
-		for(auto&& [stage, data] : shaderData)
+		for (auto&& [stage, data] : shaderData)
 			Reflect(stage, data);
 	}
 
@@ -339,9 +339,11 @@ namespace Honey {
 				glDeleteShader(id);
 		}
 
-		// TODO: should we also delete?
 		for (auto id : shaderIDs)
+		{
 			glDetachShader(program, id);
+			glDeleteShader(id);
+		}
 
 		m_RendererID = program;
 	}
