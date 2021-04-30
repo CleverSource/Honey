@@ -1,4 +1,5 @@
 include "./vendor/premake/premake_customization/solution_items.lua"
+include "Dependencies.lua"
 
 workspace "Honey"
 	architecture "x86_64"
@@ -22,17 +23,6 @@ workspace "Honey"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
-
--- Include directories relative to root folder (solution directory)
-IncludeDir = {}
-IncludeDir["GLFW"] = "%{wks.location}/Honey/vendor/GLFW/include"
-IncludeDir["Glad"] = "%{wks.location}/Honey/vendor/Glad/include"
-IncludeDir["ImGui"] = "%{wks.location}/Honey/vendor/imgui"
-IncludeDir["glm"] = "%{wks.location}/Honey/vendor/glm"
-IncludeDir["stb_image"] = "%{wks.location}/Honey/vendor/stb_image"
-IncludeDir["entt"] = "%{wks.location}/Honey/vendor/entt/include"
-IncludeDir["yaml_cpp"] = "%{wks.location}/Honey/vendor/yaml-cpp/include"
-IncludeDir["ImGuizmo"] = "%{wks.location}/Honey/vendor/ImGuizmo"
 
 group "Dependencies"
 	include "vendor/premake"

@@ -12,3 +12,8 @@ bin-int/
 **.vcxproj
 **.vcxproj.filters
 **.vcxproj.user
+
+# Directories
+Honey/vendor/VulkanSDK
+Honeynut/assets/cache
+scripts/__pycache__
