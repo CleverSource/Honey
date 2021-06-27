@@ -2,6 +2,7 @@ import os
 import subprocess
 import platform
 
+from SetupPremake import PremakeConfiguration as PremakeRequirements
 from SetupPython import PythonConfiguration as PythonRequirements
 
 # Make sure everything we need for the setup is installed
@@ -11,10 +12,14 @@ from SetupVulkan import VulkanConfiguration as VulkanRequirements
 
 os.chdir('./../') # Change from devtools/scripts directory to root
 
+premakeInstalled = PremakeRequirements.Validate()
 VulkanRequirements.Validate()
 
-if platform.system() == "Windows":
-	print("\nRunning premake...")
-	subprocess.call([os.path.abspath("./scripts/Win-GenProjects.bat"), "nopause"])
+if (premakeInstalled):
+	if platform.system() == "Windows":
+		print("\nRunning premake...")
+		subprocess.call([os.path.abspath("./scripts/Win-GenProjects.bat"), "nopause"])
 
-print("\nSetup completed!")
+	print("\nSetup completed!")
+else:
+	print("Honey requires Premake to generate project files.")
