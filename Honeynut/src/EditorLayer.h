@@ -2,6 +2,7 @@
 
 #include "Honey.h"
 #include "Panels/SceneHierarchyPanel.h"
+#include "Panels/ContentBrowserPanel.h"
 
 #include "Honey/Renderer/EditorCamera.h"
 
@@ -57,6 +58,7 @@ namespace Honey {
 
 		// Panels
 		SceneHierarchyPanel m_SceneHierarchyPanel;
+		ContentBrowserPanel m_ContentBrowserPanel;
 	};
 
 }
