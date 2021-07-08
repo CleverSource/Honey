@@ -7,7 +7,7 @@
 class Sandbox : public Honey::Application
 {
 public:
-	Sandbox()
+	Sandbox(Honey::ApplicationCommandLineArgs args)
 	{
 		// PushLayer(new ExampleLayer());
 		PushLayer(new Sandbox2D());
@@ -18,7 +18,7 @@ public:
 	}
 };
 
-Honey::Application* Honey::CreateApplication()
+Honey::Application* Honey::CreateApplication(Honey::ApplicationCommandLineArgs args)
 {
-	return new Sandbox();
+	return new Sandbox(args);
 }
