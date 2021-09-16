@@ -1,7 +1,5 @@
 #pragma once
 
-#include "glm/gtx/string_cast.hpp"
-
 #include "Honey/Core/Base.h"
 
 // This ignores all warnings raised inside External headers
@@ -9,6 +7,9 @@
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
 #pragma warning(pop)
+
+#define GLM_ENABLE_EXPERIMENTAL
+#include "glm/gtx/string_cast.hpp"
 
 namespace Honey {
 
