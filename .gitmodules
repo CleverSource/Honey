@@ -20,3 +20,6 @@
 [submodule "Honey/vendor/ImGuizmo"]
 	path = Honey/vendor/ImGuizmo
 	url = https://github.com/CleverSource/imguizmo
+[submodule "Honey/vendor/Box2D"]
+	path = Honey/vendor/Box2D
+	url = https://github.com/CleverSource/box2d
