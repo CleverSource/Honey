@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Honey/Core/Timestep.h"
+#include "Honey/Core/UUID.h"
 #include "Honey/Renderer/EditorCamera.h"
 
 #include "entt.hpp"
@@ -18,6 +19,7 @@ namespace Honey {
 		~Scene();
 
 		Entity CreateEntity(const std::string& name = std::string());
+		Entity CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
 
 		void OnRuntimeStart();

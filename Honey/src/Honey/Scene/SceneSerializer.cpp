@@ -139,8 +139,10 @@ namespace Honey {
 
 	static void SerializeEntity(YAML::Emitter& out, Entity entity)
 	{
+		HN_CORE_ASSERT(entity.HasComponent<IDComponent>())
+
 		out << YAML::BeginMap; // Entity
-		out << YAML::Key << "Entity" << YAML::Value << "12837192831273"; // TODO: Entity ID goes here
+		out << YAML::Key << "Entity" << YAML::Value << entity.GetUUID();
 
 		if (entity.HasComponent<TagComponent>())
 		{
@@ -240,13 +242,13 @@ namespace Honey {
 		out << YAML::Key << "Scene" << YAML::Value << "Untitled";
 		out << YAML::Key << "Entities" << YAML::Value << YAML::BeginSeq;
 		m_Scene->m_Registry.each([&](auto entityID)
-			{
-				Entity entity = { entityID, m_Scene.get() };
-				if (!entity)
-					return;
+		{
+			Entity entity = { entityID, m_Scene.get() };
+			if (!entity)
+				return;
 
-				SerializeEntity(out, entity);
-			});
+			SerializeEntity(out, entity);
+		});
 		out << YAML::EndSeq;
 		out << YAML::EndMap;
 
@@ -283,7 +285,7 @@ namespace Honey {
 		{
 			for (auto entity : entities)
 			{
-				uint64_t uuid = entity["Entity"].as<uint64_t>(); // TODO
+				uint64_t uuid = entity["Entity"].as<uint64_t>();
 
 				std::string name;
 				auto tagComponent = entity["TagComponent"];
@@ -292,7 +294,7 @@ namespace Honey {
 
 				HN_CORE_TRACE("Deserialized entity with ID = {0}, name = {1}", uuid, name);
 
-				Entity deserializedEntity = m_Scene->CreateEntity(name);
+				Entity deserializedEntity = m_Scene->CreateEntityWithUUID(uuid, name);
 
 				auto transformComponent = entity["TransformComponent"];
 				if (transformComponent)
