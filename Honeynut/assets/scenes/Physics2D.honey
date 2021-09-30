@@ -1,23 +1,43 @@
 Scene: Untitled
 Entities:
-  - Entity: 11851368498333421553
+  - Entity: 6209972303218952420
     TagComponent:
-      Tag: Camera
+      Tag: Floor
     TransformComponent:
-      Translation: [0, 0, 4.99711323]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    CameraComponent:
-      Camera:
-        ProjectionType: 0
-        PerspectiveFOV: 0.785398185
-        PerspectiveNear: 0.00999999978
-        PerspectiveFar: 1000
-        OrthographicSize: 10
-        OrthographicNear: -1
-        OrthographicFar: 1
-      Primary: true
-      FixedAspectRatio: false
+      Translation: [2.3499999, -1.85000002, 0]
+      Rotation: [0, 0, 0.6037094]
+      Scale: [6.7419672, 0.460678041, 1]
+    SpriteRendererComponent:
+      Color: [0.949806929, 0.455301404, 0.0660097376, 1]
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 16347714918827366715
+    TagComponent:
+      Tag: Floor
+    TransformComponent:
+      Translation: [0, -1.09000003, 0]
+      Rotation: [0, 0, -0.63896507]
+      Scale: [6.7419672, 0.460678041, 1]
+    SpriteRendererComponent:
+      Color: [0.949806929, 0.455301404, 0.0660097376, 1]
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
   - Entity: 16365610956664425989
     TagComponent:
       Tag: Sprite
@@ -37,22 +57,21 @@ Entities:
       Friction: 0.100000001
       Restitution: 0.819999993
       RestitutionThreshold: 0.5
-  - Entity: 14924862744052964436
+  - Entity: 11851368498333421553
     TagComponent:
-      Tag: Floor
+      Tag: Camera
     TransformComponent:
-      Translation: [0, -1.41280007, 0]
+      Translation: [0, 0, 4.99711323]
       Rotation: [0, 0, 0]
-      Scale: [6.7419672, 0.460678041, 1]
-    SpriteRendererComponent:
-      Color: [0.949806929, 0.455301404, 0.0660097376, 1]
-    Rigidbody2DComponent:
-      BodyType: Static
-      FixedRotation: false
-    BoxCollider2DComponent:
-      Offset: [0, 0]
-      Size: [0.5, 0.5]
-      Density: 1
-      Friction: 0.5
-      Restitution: 0
-      RestitutionThreshold: 0.5
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
