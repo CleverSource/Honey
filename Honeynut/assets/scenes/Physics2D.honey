@@ -4,13 +4,23 @@ Entities:
     TagComponent:
       Tag: Circle
     TransformComponent:
-      Translation: [1.6247555, -1.03230619, 0]
+      Translation: [2.00999999, -1.17999995, 0]
       Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
+      Scale: [2.16000009, 2.16000009, 2.16000009]
     CircleRendererComponent:
       Color: [0.934362948, 0.362345755, 0.057721246, 1]
       Thickness: 0.100000001
       Fade: 0.00499999989
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [-1, 0.5]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
   - Entity: 5134011587522944740
     TagComponent:
       Tag: Floor
