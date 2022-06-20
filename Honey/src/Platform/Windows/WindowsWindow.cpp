@@ -106,7 +106,7 @@ namespace Honey {
 				}
 				case GLFW_REPEAT:
 				{
-					KeyPressedEvent event(key, 1);
+					KeyPressedEvent event(key, true);
 					data.EventCallback(event);
 					break;
 				}
