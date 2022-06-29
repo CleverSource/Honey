@@ -1,5 +1,6 @@
 #include "hnpch.h"
 #include "Platform/OpenGL/OpenGLShader.h"
+#include "Honey/Core/Timer.h"
 
 #include <fstream>
 #include <glad/glad.h>
@@ -9,8 +10,6 @@
 #include <shaderc/shaderc.hpp>
 #include <spirv_cross/spirv_cross.hpp>
 #include <spirv_cross/spirv_glsl.hpp>
-
-#include "Honey/Core/Timer.h"
 
 namespace Honey {
 

@@ -1,8 +1,8 @@
 #pragma once
 
-#include <memory>
-
 #include "Honey/Core/PlatformDetection.h"
+
+#include <memory>
 
 #ifdef HN_DEBUG
 	#if defined(HN_PLATFORM_WINDOWS)

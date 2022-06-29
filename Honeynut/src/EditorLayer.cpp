@@ -1,16 +1,14 @@
 #include "EditorLayer.h"
+#include "Honey/Scene/SceneSerializer.h"
+#include "Honey/Utils/PlatformUtils.h"
+#include "Honey/Math/Math.h"
+
 #include <imgui/imgui.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Honey/Scene/SceneSerializer.h"
-
-#include "Honey/Utils/PlatformUtils.h"
-
 #include "ImGuizmo.h"
-
-#include "Honey/Math/Math.h"
 
 namespace Honey {
 

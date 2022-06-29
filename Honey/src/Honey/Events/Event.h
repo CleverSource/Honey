@@ -1,8 +1,9 @@
 #pragma once
-#include <functional>
 
 #include "Honey/Debug/Instrumentor.h"
 #include "Honey/Core/Base.h"
+
+#include <functional>
 
 namespace Honey {
 

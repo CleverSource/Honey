@@ -1,9 +1,9 @@
 #pragma once
 
-#include <glm/glm.hpp>
-
 #include "Honey/Core/KeyCodes.h"
 #include "Honey/Core/MouseCodes.h"
+
+#include <glm/glm.hpp>
 
 namespace Honey {
 

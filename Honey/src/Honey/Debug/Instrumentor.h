@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Honey/Core/Log.h"
+
 #include <algorithm>
 #include <chrono>
 #include <fstream>
@@ -8,8 +10,6 @@
 #include <thread>
 #include <mutex>
 #include <sstream>
-
-#include "Honey/Core/Log.h"
 
 namespace Honey {
 

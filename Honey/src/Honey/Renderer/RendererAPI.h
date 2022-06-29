@@ -1,8 +1,8 @@
 #pragma once
 
-#include <glm/glm.hpp>
-
 #include "Honey/Renderer/VertexArray.h"
+
+#include <glm/glm.hpp>
 
 namespace Honey {
 
