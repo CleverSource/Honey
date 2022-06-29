@@ -300,6 +300,7 @@ namespace Honey {
 		}
 		catch (YAML::ParserException e)
 		{
+			HN_CORE_ERROR("Failed to load .honey file '{0}'\n     {1}", filepath, e.what());
 			return false;
 		}
 
