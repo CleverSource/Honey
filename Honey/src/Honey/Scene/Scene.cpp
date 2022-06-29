@@ -310,12 +310,6 @@ namespace Honey {
 		CopyAllExistingComponents(newEntity, entity);
 	}
 
-	template<typename T>
-	void Scene::OnComponentAdded(Entity entity, T& component)
-	{
-		// static_assert(false);
-	}
-
 	void Scene::OnPhysics2DStart()
 	{
 		m_PhysicsWorld = new b2World({ 0.0f, -9.8f });
@@ -404,6 +398,12 @@ namespace Honey {
 		}
 
 		Renderer2D::EndScene();
+	}
+
+	template<typename T>
+	void Scene::OnComponentAdded(Entity entity, T& component)
+	{
+		static_assert(sizeof(T) == 0);
 	}
 
 	template<>
