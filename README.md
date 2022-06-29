@@ -39,18 +39,4 @@ The plan for Honey is two-fold: to create a powerful 3D engine, but also to serv
 - Artificial Intelligence
 - Audio system
 
-
-
-
-## Short term goals :
-*Note: this is subject to change at any time!*
-
-By the end 2020, we want to make a game using the Honey game engine. Not like the time I made a game in one hour using the engine, but this time by using the proper tools that would be required to make a game with Honey. This means we need to add a full 2D workflow:
-
-- Design the game scene by using Honeynut, the Honey editor,
-- Test the game inside Honeynut, including the ability to save/load the created game,
-- Load and play the game inside Sandbox.
-
-We want everyone to be able to play the game on all desktop platforms (Windows, Mac and Linux). When this is implemented, another attempt at the "Creating a game in one hour using Honey" will be made to see how far the engine has become.
-
 [![Twitter](https://img.shields.io/badge/%40RyanAlsoClever--blue.svg?style=social&logo=Twitter)](https://twitter.com/RyanAlsoClever)
