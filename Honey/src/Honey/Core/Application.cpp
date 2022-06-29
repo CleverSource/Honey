@@ -7,7 +7,7 @@
 
 #include "Honey/Core/Input.h"
 
-#include <GLFW/glfw3.h>
+#include "Honey/Utils/PlatformUtils.h"
 
 namespace Honey {
 
@@ -81,7 +81,7 @@ namespace Honey {
 		{
 			HN_PROFILE_SCOPE("RunLoop");
 
-			float time = (float)glfwGetTime();
+			float time = Time::GetTime();
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
