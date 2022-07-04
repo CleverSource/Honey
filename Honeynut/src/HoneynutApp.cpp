@@ -8,8 +8,8 @@ namespace Honey {
 	class Honeynut : public Application
 	{
 	public:
-		Honeynut(ApplicationCommandLineArgs args)
-			: Application("Honeynut", args)
+		Honeynut(ApplicationSpecification spec)
+			: Application(spec)
 		{
 			PushLayer(new EditorLayer());
 		}
@@ -21,7 +21,11 @@ namespace Honey {
 
 	Application* CreateApplication(ApplicationCommandLineArgs args)
 	{
-		return new Honeynut(args);
+		ApplicationSpecification spec;
+		spec.Name = "Honeynut";
+		spec.CommandLineArgs = args;
+
+		return new Honeynut(spec);
 	}
 
 }
