@@ -13,10 +13,6 @@ namespace Honey {
 		{
 			PushLayer(new EditorLayer());
 		}
-
-		~Honeynut()
-		{
-		}
 	};
 
 	Application* CreateApplication(ApplicationCommandLineArgs args)
