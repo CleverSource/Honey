@@ -7,7 +7,8 @@
 class Sandbox : public Honey::Application
 {
 public:
-	Sandbox(Honey::ApplicationCommandLineArgs args)
+	Sandbox(const Honey::ApplicationSpecification& specification)
+		: Honey::Application(specification)
 	{
 		// PushLayer(new ExampleLayer());
 		PushLayer(new Sandbox2D());
@@ -20,5 +21,10 @@ public:
 
 Honey::Application* Honey::CreateApplication(Honey::ApplicationCommandLineArgs args)
 {
-	return new Sandbox(args);
+	ApplicationSpecification spec;
+	spec.Name = "Sandbox";
+	spec.WorkingDirectory = "../Honeynut";
+	spec.CommandLineArgs = args;
+
+	return new Sandbox(spec);
 }
