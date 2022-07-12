@@ -2,22 +2,26 @@ Scene: Untitled
 Entities:
   - Entity: 6913101464894459220
     TagComponent:
-      Tag: Green Square
+      Tag: CheckerboardBG
     TransformComponent:
-      Translation: [2.4000001, 0, 0]
+      Translation: [2.4000001, 0, -12.2600002]
       Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
+      Scale: [20, 20, 20]
     SpriteRendererComponent:
-      Color: [0, 1, 0, 1]
+      Color: [0.999989986, 1, 0.999989986, 1]
+      TexturePath: assets\textures\Checkerboard.png
+      TilingFactor: 10
   - Entity: 15282232055956221936
     TagComponent:
-      Tag: Red Square
+      Tag: Clever Square
     TransformComponent:
-      Translation: [0, 1.10000002, 0]
+      Translation: [-1.10000002, 1.10000002, 0]
       Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
+      Scale: [4.40999985, 4.40999985, 4.40999985]
     SpriteRendererComponent:
-      Color: [1, 0, 0, 1]
+      Color: [1, 0.999989986, 0.999989986, 1]
+      TexturePath: assets\textures\CleverLogo.png
+      TilingFactor: 1
   - Entity: 18165607662950740479
     TagComponent:
       Tag: Camera A
