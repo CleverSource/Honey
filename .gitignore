@@ -1,6 +1,7 @@
 # Binaries
 **/bin/
 bin-int/
+Intermediates/
 
 # Honey files
 *.log
@@ -11,6 +12,7 @@ bin-int/
 **.vcxproj
 **.vcxproj.filters
 **.vcxproj.user
+**.csproj
 
 # Directories
 Honey/vendor/VulkanSDK

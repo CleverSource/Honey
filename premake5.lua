@@ -33,6 +33,15 @@ group "Dependencies"
 	include "Honey/vendor/yaml-cpp"
 group ""
 
-include "Honey"
-include "Sandbox"
-include "Honeynut"
+group "Core"
+	include "Honey"
+	include "Honey-ScriptCore"
+group ""
+
+group "Tools"
+	include "Honeynut"
+group ""
+
+group "Misc"
+	include "Sandbox"
+group ""

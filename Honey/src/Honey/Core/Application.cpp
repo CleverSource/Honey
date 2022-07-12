@@ -4,9 +4,9 @@
 #include "Honey/Core/Log.h"
 
 #include "Honey/Renderer/Renderer.h"
+#include "Honey/Scripting/ScriptEngine.h"
 
 #include "Honey/Core/Input.h"
-
 #include "Honey/Utils/PlatformUtils.h"
 
 namespace Honey {
@@ -29,6 +29,7 @@ namespace Honey {
 		m_Window->SetEventCallback(HN_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
+		ScriptEngine::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
@@ -38,6 +39,7 @@ namespace Honey {
 	{
 		HN_PROFILE_FUNCTION();
 
+		ScriptEngine::Shutdown();
 		Renderer::Shutdown();
 	}
 
