@@ -18,7 +18,7 @@ namespace Honey {
 	static void NativeLog_Vector(glm::vec3* parameter, glm::vec3* outResult)
 	{
 		HN_CORE_WARN("Value: {0}", *parameter);
-		*outResult = glm::cross(*parameter, glm::vec3(parameter->x, parameter->y, -parameter->z));
+		*outResult = glm::normalize(*parameter);
 	}
 
 	static float NativeLog_VectorDot(glm::vec3* parameter)
