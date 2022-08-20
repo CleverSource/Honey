@@ -3,8 +3,8 @@ project "Honey-ScriptCore"
 	language "C#"
 	dotnetframework "4.7.2"
 
-	targetdir ("%{wks.location}/Honeynut/Resources/Scripts")
-	objdir ("%{wks.location}/Honeynut/Resources/Scripts/Intermediates")
+	targetdir ("../Honeynut/Resources/Scripts")
+	objdir ("../Honeynut/Resources/Scripts/Intermediates")
 
 	files
 	{
