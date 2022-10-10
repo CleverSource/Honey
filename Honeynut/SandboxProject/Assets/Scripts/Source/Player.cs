@@ -49,7 +49,7 @@ namespace Sandbox
 
 				if (Input.IsKeyDown(KeyCode.Q))
 					camera.DistanceFromPlayer += speed * 2.0f * ts;
-				if (Input.IsKeyDown(KeyCode.E))
+				else if (Input.IsKeyDown(KeyCode.E))
 					camera.DistanceFromPlayer -= speed * 2.0f * ts;
 			}
 

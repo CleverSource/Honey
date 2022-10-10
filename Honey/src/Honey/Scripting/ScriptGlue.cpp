@@ -149,6 +149,7 @@ namespace Honey {
 
 	void ScriptGlue::RegisterComponents()
 	{
+		s_EntityHasComponentFuncs.clear();
 		RegisterComponent(AllComponents{});
 	}
 

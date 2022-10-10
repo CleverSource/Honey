@@ -2,6 +2,7 @@
 #include "Honey/Scene/SceneSerializer.h"
 #include "Honey/Utils/PlatformUtils.h"
 #include "Honey/Math/Math.h"
+#include "Honey/Scripting/ScriptEngine.h"
 
 #include <imgui/imgui.h>
 
@@ -196,7 +197,17 @@ namespace Honey {
 				if (ImGui::MenuItem("Save As...", "Ctrl+Shift+S"))
 					SaveSceneAs();
 
-				if (ImGui::MenuItem("Exit")) Application::Get().Close();
+				if (ImGui::MenuItem("Exit"))
+					Application::Get().Close();
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Script"))
+			{
+				if (ImGui::MenuItem("Reload assembly", "Ctrl+R"))
+					ScriptEngine::ReloadAssembly();
+
 				ImGui::EndMenu();
 			}
 
@@ -440,8 +451,15 @@ namespace Honey {
 			}
 			case Key::R:
 			{
-				if (!ImGuizmo::IsUsing())
-					m_GizmoType = ImGuizmo::OPERATION::SCALE;
+				if (control)
+				{
+					ScriptEngine::ReloadAssembly();
+				}
+				else
+				{
+					if (!ImGuizmo::IsUsing())
+						m_GizmoType = ImGuizmo::OPERATION::SCALE;
+				}
 				break;
 			}
 		}
