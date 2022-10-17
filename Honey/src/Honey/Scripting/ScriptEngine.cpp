@@ -7,6 +7,11 @@
 #include "mono/metadata/object.h"
 #include "mono/metadata/tabledefs.h"
 
+#include "FileWatch.h"
+
+#include "Honey/Core/Application.h"
+#include "Honey/Core/Timer.h"
+
 namespace Honey {
 
 	static std::unordered_map<std::string, ScriptFieldType> s_ScriptFieldTypeMap =
@@ -22,12 +27,12 @@ namespace Honey {
 		{ "System.UInt16", ScriptFieldType::UShort },
 		{ "System.UInt32", ScriptFieldType::UInt },
 		{ "System.UInt64", ScriptFieldType::ULong },
-		
+
 		{ "Honey.Vector2", ScriptFieldType::Vector2 },
 		{ "Honey.Vector3", ScriptFieldType::Vector3 },
 		{ "Honey.Vector4", ScriptFieldType::Vector4 },
-		
-		{ "Honey.Entity", ScriptFieldType::Entity},
+
+		{ "Honey.Entity", ScriptFieldType::Entity },
 	};
 
 	namespace Utils {
@@ -140,12 +145,29 @@ namespace Honey {
 		std::unordered_map<UUID, Ref<ScriptInstance>> EntityInstances;
 		std::unordered_map<UUID, ScriptFieldMap> EntityScriptFields;
 
+		Scope<filewatch::FileWatch<std::string>> AppAssemblyFileWatcher;
+		bool AssemblyReloadPending = false;
+
 		// Runtime
 
 		Scene* SceneContext = nullptr;
 	};
 
 	static ScriptEngineData* s_Data = nullptr;
+
+	static void OnAppAssemblyFileSystemEvent(const std::string& path, const filewatch::Event change_type)
+	{
+		if (!s_Data->AssemblyReloadPending && change_type == filewatch::Event::modified)
+		{
+			s_Data->AssemblyReloadPending = true;
+
+			Application::Get().SubmitToMainThread([]()
+			{
+				s_Data->AppAssemblyFileWatcher.reset();
+				ScriptEngine::ReloadAssembly();
+			});
+		}
+	}
 
 	void ScriptEngine::Init()
 	{
@@ -223,7 +245,7 @@ namespace Honey {
 		mono_jit_cleanup(s_Data->RootDomain);
 		s_Data->RootDomain = nullptr;
 	}
-
+	
 	void ScriptEngine::LoadAssembly(const std::filesystem::path& filepath)
 	{
 		// Create an App Domain
@@ -246,6 +268,9 @@ namespace Honey {
 		s_Data->AppAssemblyImage = mono_assembly_get_image(s_Data->AppAssembly);
 		auto assembi = s_Data->AppAssemblyImage;
 		// Utils::PrintAssemblyTypes(s_Data->AppAssembly);
+
+		s_Data->AppAssemblyFileWatcher = CreateScope<filewatch::FileWatch<std::string>>(filepath.string(), OnAppAssemblyFileSystemEvent);
+		s_Data->AssemblyReloadPending = false;
 	}
 
 	void ScriptEngine::ReloadAssembly()

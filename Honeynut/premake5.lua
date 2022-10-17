@@ -18,8 +18,9 @@ project "Honeynut"
 		"%{wks.location}/Honey/vendor/spdlog/include",
 		"%{wks.location}/Honey/src",
 		"%{wks.location}/Honey/vendor",
-		"%{IncludeDir.glm}",
 		"%{IncludeDir.entt}",
+		"%{IncludeDir.filewatch}",
+		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGuizmo}"
 	}
 
