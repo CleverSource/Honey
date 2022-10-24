@@ -148,6 +148,8 @@ namespace Honey {
 
 	void Application::ExecuteMainThreadQueue()
 	{
+		std::scoped_lock<std::mutex> lock(m_MainThreadQueueMutex);
+
 		for (auto& func : m_MainThreadQueue)
 			func();
 
