@@ -67,10 +67,10 @@ namespace Honey {
 	static void CopyComponentIfExists(Entity dst, Entity src)
 	{
 		([&]()
-			{
-				if (src.HasComponent<Component>())
-					dst.AddOrReplaceComponent<Component>(src.GetComponent<Component>());
-			}(), ...);
+		{
+			if (src.HasComponent<Component>())
+				dst.AddOrReplaceComponent<Component>(src.GetComponent<Component>());
+		}(), ...);
 	}
 
 	template<typename... Component>
