@@ -9,7 +9,7 @@ Entities:
       Scale: [20, 20, 20]
     SpriteRendererComponent:
       Color: [0.999989986, 1, 0.999989986, 1]
-      TexturePath: assets\textures\Checkerboard.png
+      TexturePath: Textures\Checkerboard.png
       TilingFactor: 10
   - Entity: 15282232055956221936
     TagComponent:
@@ -20,7 +20,7 @@ Entities:
       Scale: [4.40999985, 4.40999985, 4.40999985]
     SpriteRendererComponent:
       Color: [1, 0.999989986, 0.999989986, 1]
-      TexturePath: assets\textures\CleverLogo.png
+      TexturePath: Textures\CleverLogo.png
       TilingFactor: 1
   - Entity: 18165607662950740479
     TagComponent:

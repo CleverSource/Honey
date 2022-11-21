@@ -193,7 +193,7 @@ namespace Honey {
 	{
 		if (width == 0 || height == 0 || width > s_MaxFramebufferSize || height > s_MaxFramebufferSize)
 		{
-			HN_CORE_WARN("Attempted to rezize framebuffer to {0}, {1}", width, height);
+			HN_CORE_WARN("Attempted to resize framebuffer to {0}, {1}", width, height);
 			return;
 		}
 		m_Specification.Width = width;

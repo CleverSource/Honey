@@ -23,6 +23,8 @@
 #include "Honey/Scene/ScriptableEntity.h"
 #include "Honey/Scene/Components.h"
 
+#include "Honey/Project/Project.h"
+
 // ---Renderer------------------------
 #include "Honey/Renderer/Renderer.h"
 #include "Honey/Renderer/Renderer2D.h"
