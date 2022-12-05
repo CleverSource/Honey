@@ -132,8 +132,11 @@ namespace Honey {
 		Scope<filewatch::FileWatch<std::string>> AppAssemblyFileWatcher;
 		bool AssemblyReloadPending = false;
 
+#ifdef HN_DEBUG
 		bool EnableDebugging = true;
-
+#else
+		bool EnableDebugging = false;
+#endif
 		// Runtime
 
 		Scene* SceneContext = nullptr;
