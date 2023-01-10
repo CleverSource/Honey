@@ -16,6 +16,8 @@
 #include "Honey/Core/Buffer.h"
 #include "Honey/Core/FileSystem.h"
 
+#include "Honey/Project/Project.h"
+
 namespace Honey {
 
 	static std::unordered_map<std::string, ScriptFieldType> s_ScriptFieldTypeMap =
@@ -171,7 +173,9 @@ namespace Honey {
 			HN_CORE_ERROR("[ScriptEngine] Could not load Honey-ScriptCore assembly.");
 			return;
 		}
-		status = LoadAppAssembly("SandboxProject/Assets/Scripts/Binaries/Sandbox.dll");
+
+		auto scriptModulePath = Project::GetAssetDirectory() / Project::GetActive()->GetConfig().ScriptModulePath;
+		status = LoadAppAssembly(scriptModulePath);
 		if (!status)
 		{
 			HN_CORE_ERROR("[ScriptEngine] Could not load app assembly.");

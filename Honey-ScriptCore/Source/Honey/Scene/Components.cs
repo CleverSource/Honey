@@ -29,6 +29,22 @@ namespace Honey
 
 	public class Rigidbody2DComponent : Component
 	{
+		public enum BodyType { Static = 0, Dynamic, Kinematic }
+
+		public Vector2 LinearVelocity
+		{
+			get
+			{
+				InternalCalls.Rigidbody2DComponent_GetLinearVelocity(Entity.ID, out Vector2 velocity);
+				return velocity;
+			}
+		}
+
+		public BodyType Type
+		{
+			get => InternalCalls.Rigidbody2DComponent_GetType(Entity.ID);
+			set => InternalCalls.Rigidbody2DComponent_SetType(Entity.ID, value);
+		}
 
 		public void ApplyLinearImpulse(Vector2 impulse, Vector2 worldPosition, bool wake)
 		{
