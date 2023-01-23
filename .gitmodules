@@ -23,3 +23,6 @@
 [submodule "Honey/vendor/Box2D"]
 	path = Honey/vendor/Box2D
 	url = https://github.com/CleverSource/box2d
+[submodule "Honey/vendor/msdf-atlas-gen"]
+	path = Honey/vendor/msdf-atlas-gen
+	url = https://github.com/CleverSource/msdf-atlas-gen

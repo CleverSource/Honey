@@ -3,6 +3,7 @@
 #include "Honey/Utils/PlatformUtils.h"
 #include "Honey/Math/Math.h"
 #include "Honey/Scripting/ScriptEngine.h"
+#include "Honey/Renderer/Font.h"
 
 #include <imgui/imgui.h>
 
@@ -16,6 +17,8 @@ namespace Honey {
 	EditorLayer::EditorLayer()
 		: Layer("EditorLayer"), m_CameraController(1280.0f / 720.0f), m_SquareColor({ 0.2f, 0.3f, 0.8f, 1.0f })
 	{
+		Font font("assets/fonts/opensans/OpenSans-Regular.ttf");
+
 	}
 
 	void EditorLayer::OnAttach()
