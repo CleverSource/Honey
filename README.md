@@ -38,5 +38,3 @@ The plan for Honey is two-fold: to create a powerful 3D engine, but also to serv
 - Procedural terrain and world generation
 - Artificial Intelligence
 - Audio system
-
-[![Twitter](https://img.shields.io/badge/%40RyanAlsoClever--blue.svg?style=social&logo=Twitter)](https://twitter.com/RyanAlsoClever)
