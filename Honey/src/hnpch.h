@@ -23,6 +23,7 @@
 #include <unordered_set>
 
 #include "Honey/Core/Base.h"
+#include "Honey/Core/Buffer.h"
 
 #include "Honey/Core/Log.h"
 
