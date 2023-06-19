@@ -1,5 +1,7 @@
 #include "ExampleLayer.h"
 
+#include "Honey/Asset/TextureImporter.h"
+
 #include "imgui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
@@ -121,8 +123,8 @@ ExampleLayer::ExampleLayer()
 
 	auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
-	m_Texture = Honey::Texture2D::Create("assets/textures/Checkerboard.png");
-	m_CleverLogoTexture = Honey::Texture2D::Create("assets/textures/CleverLogo.png");
+	m_Texture = Honey::TextureImporter::LoadTexture2D("assets/textures/Checkerboard.png");
+	m_CleverLogoTexture = Honey::TextureImporter::LoadTexture2D("assets/textures/CleverLogo.png");
 
 	textureShader->Bind();
 	textureShader->SetInt("u_Texture", 0);

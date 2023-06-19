@@ -17,6 +17,7 @@ namespace Honey {
 		std::filesystem::path StartScene;
 
 		std::filesystem::path AssetDirectory;
+		std::filesystem::path AssetRegistryPath; // Relative to AssetDirectory
 		std::filesystem::path ScriptModulePath;
 	};
 
@@ -33,6 +34,12 @@ namespace Honey {
 		{
 			HN_CORE_ASSERT(s_ActiveProject);
 			return GetProjectDirectory() / s_ActiveProject->m_Config.AssetDirectory;
+		}
+
+		static std::filesystem::path GetAssetRegistryPath()
+		{
+			HN_CORE_ASSERT(s_ActiveProject);
+			return GetAssetDirectory() / s_ActiveProject->m_Config.AssetRegistryPath;
 		}
 
 		// TODO(Ryan): move to asset manager when we have one

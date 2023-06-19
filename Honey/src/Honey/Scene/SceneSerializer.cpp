@@ -290,8 +290,7 @@ namespace Honey {
 
 			auto& spriteRendererComponent = entity.GetComponent<SpriteRendererComponent>();
 			out << YAML::Key << "Color" << YAML::Value << spriteRendererComponent.Color;
-			if (spriteRendererComponent.Texture)
-				out << YAML::Key << "TexturePath" << YAML::Value << spriteRendererComponent.Texture->GetPath();
+			out << YAML::Key << "TextureHandle" << YAML::Value << spriteRendererComponent.Texture;
 			
 			out << YAML::Key << "TilingFactor" << YAML::Value << spriteRendererComponent.TilingFactor;
 
@@ -528,10 +527,14 @@ namespace Honey {
 					src.Color = spriteRendererComponent["Color"].as<glm::vec4>();
 					if (spriteRendererComponent["TexturePath"])
 					{
-						std::string texturePath = spriteRendererComponent["TexturePath"].as<std::string>();
-						auto path = Project::GetAssetFileSystemPath(texturePath);
-						src.Texture = Texture2D::Create(path.string());
+						// NOTE(Ryan): legacy, could try and find something in the asset registry that matches?
+						// std::string texturePath = spriteRendererComponent["TexturePath"].as<std::string>();
+						// auto path = Project::GetAssetFileSystemPath(texturePath);
+						// src.Texture = Texture2D::Create(path.string());
 					}
+
+					if (spriteRendererComponent["TextureHandle"])
+						src.Texture = spriteRendererComponent["TextureHandle"].as<AssetHandle>();
 
 					if (spriteRendererComponent["TilingFactor"])
 						src.TilingFactor = spriteRendererComponent["TilingFactor"].as<float>();

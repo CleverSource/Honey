@@ -32,7 +32,7 @@ namespace Honey {
 	}
 
 	OpenGLTexture2D::OpenGLTexture2D(const TextureSpecification& specification, Buffer data)
-		: m_Specification(specification), m_Width(specification.Width), m_Height(specification.Height)
+		: m_Specification(specification), m_Width(m_Specification.Width), m_Height(m_Specification.Height)
 	{
 		HN_PROFILE_FUNCTION();
 

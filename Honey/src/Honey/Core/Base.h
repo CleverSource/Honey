@@ -4,18 +4,21 @@
 
 #include <memory>
 
-#ifdef HN_DEBUG
-	#if defined(HN_PLATFORM_WINDOWS)
-		#define HN_DEBUGBREAK() __debugbreak()
-	#elif defined(HN_PLATFORM_LINUX)
-		#include <signal.h>
-		#define HN_DEBUGBREAK() raise(SIGTRAP)
-	#else
-		#error "Platform doesn't support debugbreak yet!"
-	#endif
-	#define HN_ENABLE_ASSERTS
+#if defined(HN_PLATFORM_WINDOWS)
+	#define HN_DEBUGBREAK() __debugbreak()
+#elif defined(HN_PLATFORM_LINUX)
+	#include <signal.h>
+	#define HN_DEBUGBREAK() raise(SIGTRAP)
 #else
-	#define HN_DEBUGBREAK()
+	#error "Platform doesn't support debugbreak yet!"
+#endif
+
+#ifdef HN_DEBUG
+	#define HN_ENABLE_ASSERTS
+#endif
+
+#ifndef HN_DIST
+	#define HN_ENABLE_VERIFY
 #endif
 
 #define HN_EXPAND_MACRO(x) x
