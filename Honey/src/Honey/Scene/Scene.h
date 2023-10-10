@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Honey/Asset/Asset.h"
 #include "Honey/Core/Timestep.h"
 #include "Honey/Core/UUID.h"
 #include "Honey/Renderer/EditorCamera.h"
@@ -12,13 +13,15 @@ namespace Honey {
 
 	class Entity;
 
-	class Scene
+	class Scene : public Asset
 	{
 	public:
 		Scene();
 		~Scene();
 
 		static Ref<Scene> Copy(Ref<Scene> other);
+
+		virtual AssetType GetType() const { return AssetType::Scene; }
 
 		Entity CreateEntity(const std::string& name = std::string());
 		Entity CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
